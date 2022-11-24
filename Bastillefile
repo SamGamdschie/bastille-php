@@ -5,7 +5,6 @@ CMD mkdr -p /www/certificates
 CMD mkdir -p /usr/local/etc/git_config/nginx
 CMD mkdir -p /usr/local/etc/git_config/php
 
-MOUNT /usr/ports usr/ports nullfs ro 0 0 
 MOUNT /werzel/certificates www/certificates nullfs ro 0 0
 MOUNT /werzel/server_config/nginx usr/local/etc/git_config/nginx nullfs ro 0 0
 MOUNT /werzel/server_config/php usr/local/etc/git_config/php nullfs ro 0 0
