@@ -3,7 +3,7 @@ ARG config=www
 
 PKG nginx htop php${php-version}
 
-CMD mkdr -p /www/certificates 
+CMD mkdir -p /www/certificates
 CMD mkdir -p /usr/local/etc/git_config/nginx
 CMD mkdir -p /usr/local/etc/git_config/php
 
