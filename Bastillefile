@@ -1,7 +1,7 @@
 ARG php-version=82
 ARG config=www
 
-PKG nginx htop php${php-version}
+PKG nginx htop php${php-version} php${php-version}-mysqli php${php-version}-pdo_mysql
 
 CMD mkdir -p /www/certificates
 CMD mkdir -p /usr/local/etc/git_config/nginx
@@ -26,4 +26,3 @@ SYSRC nginx_enable=YES
 
 SERVICE php-fpm start
 SERVICE nginx start
-
