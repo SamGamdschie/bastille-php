@@ -7,10 +7,12 @@ PKG nginx htop php${php-version} php${php-version}-mysqli php${php-version}-pdo_
 CMD mkdir -p /www/certificates
 CMD mkdir -p /usr/local/etc/git_config/nginx
 CMD mkdir -p /usr/local/etc/git_config/php
+CMD mkdir -p /www/vhosts/${config}
 
 MOUNT /werzel/certificates www/certificates nullfs ro 0 0
 MOUNT /werzel/server_config/nginx usr/local/etc/git_config/nginx nullfs ro 0 0
 MOUNT /werzel/server_config/php usr/local/etc/git_config/php nullfs ro 0 0
+MOUNT /werzel/${config} www/vhosts/${config} nullfs rw 0 0
 
 # Link Configurations 
 CMD rm -rf /usr/local/etc/nginx/nginx.conf
@@ -19,7 +21,6 @@ CMD ln -s /usr/local/etc/git_config/php/${config}.conf /usr/local/etc/php-fpm.d/
 
 #Create additional Dirs for TMP / Session
 CMD mkdir -p /www/vhosts
-CMD mkdir -p /www/vhosts/${config}
 CMD mkdir -p /www/vhosts/tmp
 CMD mkdir -p /www/vhosts/sessions
 CMD mkdir -p /www/vhosts/upload_tmp
