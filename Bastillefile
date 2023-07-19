@@ -2,7 +2,10 @@ ARG php-version=82
 ARG config=www
 ARG mailip=10.0.0.10
 
-PKG nginx htop php${php-version} php${php-version}-mysqli php${php-version}-pdo_mysql
+PKG nginx htop 
+PKG php${php-version} php${php-version}-extensions 
+PKG php${php-version}-mysqli php${php-version}-pdo_mysql 
+PKG php${php-version}-curl php${php-version}-mbstring
 
 CMD mkdir -p /www/certificates
 CMD mkdir -p /usr/local/etc/git_config/nginx
